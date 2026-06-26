@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ôn tập Unit 12 [Điện thoại]</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Chiron GoRound TC', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f5f7fa; 
             color: #333;
             margin: 0;
@@ -15,12 +18,89 @@
             justify-content: center;
         }
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             width: 100%;
             background: #f5f7fa;
             padding: 40px;
             border-radius: 24px;
             box-shadow: 9px 9px 20px #d1d9e6, -9px -9px 20px #ffffff;
+            display: flex;
+            flex-direction: column;
+            height: auto;
+            box-sizing: border-box;
+        }
+
+        /* Định dạng tag lớp học */
+        .classroom-tag {
+            text-align: center;
+            color: #a0aec0;
+            font-size: 13px;
+            margin-bottom: 25px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Khung hướng dẫn tổng bọc ngoài dập nhẹ (Đã chỉnh tone xanh pastel dịu mát) */
+        .instruction-box {
+            background: #e6f0ff;
+            padding: 25px 30px;
+            border-radius: 18px;
+            box-shadow: inset 2px 2px 5px #d1d9e6, inset -2px -2px 5px #ffffff;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        /* Tiêu đề hướng dẫn */
+        .ins-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #4a5568;
+            letter-spacing: 1px;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Danh sách các bước làm bài */
+        .ins-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* Từng dòng bước làm bài */
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+
+        /* Số thứ tự tròn dạng pastel dịu mắt */
+        .step-number {
+            background: #ffffff;
+            color: #3182ce;
+            font-size: 12px;
+            font-weight: bold;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+            box-shadow: 1px 1px 3px #d1d9e6;
+        }
+
+        /* Chữ của từng bước */
+        .step-item p {
+            margin: 0;
+            font-size: 14px;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+        .step-item p b {
+            color: #2b6cb0;
         }
         h1 {
             text-align: center;
@@ -29,32 +109,139 @@
             font-size: 26px;
             text-shadow: 1px 1px 1px #ffffff;
         }
-        .subtitle {
-            text-align: center;
-            color: #718096;
-            margin-bottom: 40px;
-            font-size: 14px;
-        }
         .dialogue-wrapper {
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: 35px;
+            width: 100%;
+            height: auto;
         }
+        
+        /* Cấu trúc bong bóng chat Neumorphism */
         .sentence-block {
             background: #f5f7fa;
             padding: 25px;
             border-radius: 20px;
             box-shadow: inset 3px 3px 8px #d1d9e6, inset -3px -3px 8px #ffffff;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 82%;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
         }
+
+        /* Câu dẫn chuyện ở giữa */
+        .block-narrative {
+            margin: 0 auto;
+            width: 100%;
+            border: 2px dashed #8BB2EC;
+        }
+
+        /* Minsoo lệch trái */
+        .block-minsoo {
+            margin-right: auto;
+            margin-left: 0;
+        }
+
+        /* Soojin lệch phải */
+        .block-soojin {
+            margin-left: auto;
+            margin-right: 0;
+        }
+
+        /* --- Giao diện thanh âm thanh Pastel trên cùng --- */
+        .audio-player-zone {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #cee0fb;
+            padding: 8px 16px;
+            border-radius: 15px;
+            box-shadow: 3px 3px 6px #d1d9e6, -3px -3px 6px #ffffff;
+            margin-bottom: 5px;
+        }
+        .play-btn {
+            background: #f5f7fa;
+            border: none;
+            color: #63b3ed;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            box-shadow: 2px 2px 5px #d1d9e6, -2px -2px 5px #ffffff;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+        .play-btn:hover {
+            color: #3182ce;
+            box-shadow: 1px 1px 3px #d1d9e6, -1px -1px 3px #ffffff;
+        }
+        .play-btn:active {
+            box-shadow: inset 2px 2px 4px #d1d9e6, inset -2px -2px 4px #ffffff;
+        }
+        .audio-slider {
+            flex-grow: 1;
+            -webkit-appearance: none;
+            appearance: none;
+            height: 6px;
+            border-radius: 3px;
+            background: #f5f7fa;
+            box-shadow: inset 1px 1px 2px #d1d9e6;
+            outline: none;
+            cursor: pointer;
+        }
+        .audio-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #88C1F2;
+            box-shadow: 1px 1px 3px #b8c2cc;
+            transition: transform 0.1s;
+        }
+        .audio-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+        .time-display {
+            font-size: 12px;
+            color: #718096;
+            min-width: 65px;
+            text-align: center;
+            font-variant-numeric: tabular-nums;
+        }
+        .speed-btn {
+            background: #f5f7fa;
+            border: none;
+            color: #718096;
+            padding: 4px 10px;
+            font-size: 11px;
+            font-weight: bold;
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 2px 2px 5px #d1d9e6, -2px -2px 5px #ffffff;
+            transition: all 0.2s ease;
+            min-width: 45px;
+        }
+        .speed-btn:hover {
+            color: #88C1F2;
+        }
+
+        /* --- Vùng hội thoại điền từ --- */
         .korean-line {
             font-size: 18px;
             line-height: 1.9;
-            margin-bottom: 15px;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             gap: 6px;
             color: #000000;
+            margin: 5px 0;
         }
         .speaker-민수 {
             font-weight: bold;
@@ -73,29 +260,6 @@
             border-radius: 12px;
             box-shadow: 3px 3px 6px #d1d9e6, -3px -3px 6px #ffffff;
             margin-right: 5px;
-        }
-        .play-btn {
-            background: #f5f7fa;
-            border: none;
-            color: #4a5568;
-            border-radius: 50%;
-            width: 38px;
-            height: 38px;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            margin-right: 10px;
-            box-shadow: 3px 3px 6px #d1d9e6, -3px -3px 6px #ffffff;
-            transition: all 0.2s ease;
-        }
-        .play-btn:hover {
-            color: #3182ce;
-            box-shadow: 1px 1px 3px #d1d9e6, -1px -1px 3px #ffffff;
-        }
-        .play-btn:active {
-            box-shadow: inset 2px 2px 4px #d1d9e6, inset -2px -2px 4px #ffffff;
         }
         input[type="text"].blank {
             border: none;
@@ -123,8 +287,9 @@
             box-shadow: inset 2px 2px 5px #fed7d7, inset -2px -2px 5px #ffffff;
             background: #fff5f5;
         }
+
+        /* --- Khung dịch tiếng Việt dưới cùng --- */
         .translation-zone {
-            margin-top: 15px;
             display: flex;
             flex-direction: column;
             gap: 10px;
@@ -133,9 +298,10 @@
             width: 100%;
             padding: 12px 16px;
             border: none;
-            background: #f5f7fa;
+            background: #f2f8ff;
             border-radius: 12px;
-            font-size: 14px;
+            font-size: 15px;
+            color: #2d3748;
             box-sizing: border-box;
             resize: vertical;
             font-family: inherit;
@@ -152,12 +318,15 @@
             background: #edf2f7;
             padding: 12px 16px;
             border-radius: 10px;
-            display: none; /* Ban đầu ẩn hoàn toàn */
+            display: none;
             box-shadow: inset 1px 1px 3px #d1d9e6;
             line-height: 1.5;
         }
+        
+        /* Khu vực nút điều khiển cuối bài */
         .action-area {
-            margin-top: 40px;
+            margin-top: 50px;
+            margin-bottom: 20px;
             display: flex;
             justify-content: center;
             gap: 20px;
@@ -181,13 +350,11 @@
         .check-btn:active {
             box-shadow: inset 3px 3px 6px #d1d9e6, inset -3px -3px 6px #ffffff;
         }
-        /* Style trạng thái khóa (Unavailable) của nút hiển thị dịch mẫu */
         .global-hint-btn {
             color: #a0aec0;
             cursor: not-allowed;
             opacity: 0.6;
         }
-        /* Style trạng thái mở khóa (Available) màu xanh dương pastel hiện đại */
         .global-hint-btn.active {
             color: #ffffff;
             background: #88C1F2;
@@ -199,18 +366,31 @@
             background: #A0D3FF;
             box-shadow: 2px 2px 6px #b8c2cc, -2px -2px 6px #ffffff;
         }
-        .global-hint-btn.active:active {
-            box-shadow: inset 3px 3px 6px #1a365d, inset -3px -3px 6px #ffffff;
-        }
     </style>
 </head>
 <body>
 
 <div class="container">
     <h1>Hội thoại chủ đề "Điện thoại"</h1>
-    <div class="subtitle">Ngoc Quyen's Classroom · THTH 1_Unit 12</div>
-      <div class="subtitle">Đề bài: Hãy click vào icon "phát âm thanh" ở mỗi câu để nghe và điền vào chỗ trống. Sau đó hãy dịch câu văn sang tiếng Việt. 
-      Sau khi điền và dịch xong, học viên có thể tự kiểm tra kết quả ở 2 nút phía cuối bài tập </div>
+    <div class="classroom-tag">Ngoc Quyen's Classroom · THTH 1_Unit 12</div>
+    
+    <div class="instruction-box">
+        <div class="ins-title">📝 HƯỚNG DẪN LÀM BÀI</div>
+        <div class="ins-steps">
+            <div class="step-item">
+                <span class="step-number">1</span>
+                <p>Click nút <b>"Play 🔊"</b> ở mỗi câu để nghe và điền vào chỗ trống (có thể tạm dừng hoặc chỉnh tốc độ đọc tùy ý).</p>
+            </div>
+            <div class="step-item">
+                <span class="step-number">2</span>
+                <p>Dịch từng câu văn hội thoại sang tiếng Việt vào ô trống phía dưới.</p>
+            </div>
+            <div class="step-item">
+                <span class="step-number">3</span>
+                <p>Sau khi hoàn thành, ở phía dưới cùng bài tập, học viên có thể bấm nút kiểm tra kết quả bài làm. [Bản dịch tiếng Việt chỉ hiển thị khi dịch hết bài]</p>
+            </div>
+        </div>
+    </div>
 
     <div class="dialogue-wrapper" id="dialogue"></div>
 
@@ -218,9 +398,7 @@
         <button class="check-btn" onclick="checkAnswers()">Kết quả điền từ</button>
         <button id="global-hint-button" class="global-hint-btn" disabled onclick="toggleAllHints()">Bản dịch tiếng Việt</button>
     </div>
-</div>
-
-<script>
+</div> <script>
 const dialogueData = [
         { id: 1, text: "민수 씨는 이번 주 토요일에 [친구와 영화를 보려고 해요]. 그래서 오늘 오전 10시에 [수진 씨에게] 전화를 합니다.", speaker: "", hint: "Minsoo định đi xem phim với bạn vào thứ Bảy tuần này. Vì vậy, cậu ấy gọi điện cho Soojin vào lúc 10 giờ sáng hôm nay." },
         { id: 2, text: "여보세요? 거기 [수진 씨지요]?", speaker: "민수", hint: "A lô? Bên đó có phải là Soojin không ạ?" },
@@ -237,20 +415,89 @@ const dialogueData = [
     ];
 
     let currentAudio = null;
+    let currentPlayingId = null;
     let hintsVisible = false;
+    const speedStates = {}; 
 
-    // Hàm phát audio local mượt mà trong Live Server
+    function formatTime(secs) {
+        if (isNaN(secs)) return "00:00";
+        const m = Math.floor(secs / 60).toString().padStart(2, '0');
+        const s = Math.floor(secs % 60).toString().padStart(2, '0');
+        return `${m}:${s}`;
+    }
+
     function playAudio(id) {
+        const btn = document.getElementById(`play-btn-${id}`);
+        const slider = document.getElementById(`slider-${id}`);
+        const timeDisp = document.getElementById(`time-${id}`);
+
+        if (currentPlayingId === id && currentAudio) {
+            if (currentAudio.paused) {
+                currentAudio.play();
+                btn.innerText = "⏸";
+            } else {
+                currentAudio.pause();
+                btn.innerText = "▶";
+            }
+            return;
+        }
+
         if (currentAudio) {
             currentAudio.pause();
-            currentAudio.currentTime = 0;
+            const prevBtn = document.getElementById(`play-btn-${currentPlayingId}`);
+            if (prevBtn) prevBtn.innerText = "▶";
         }
-        
-        // Gọi trực tiếp file từ thư mục audio nội bộ
+
+        currentPlayingId = id;
         currentAudio = new Audio(`./audio/${id}.mp3`);
-        currentAudio.play().catch(error => {
-            alert(`Pen ơi, hình như thiếu file "${id}.mp3" trong thư mục "audio" rồi, Pen check lại thử nha!`);
+        
+        if (speedStates[id]) {
+            currentAudio.playbackRate = speedStates[id];
+        } else {
+            speedStates[id] = 1.0;
+        }
+
+        currentAudio.play().then(() => {
+            btn.innerText = "⏸";
+        }).catch(error => {
+            alert(`Pen ơi, hình như thiếu file "${id}.mp3" rồi, Pen check lại thử nha!`);
         });
+
+        currentAudio.addEventListener('timeupdate', () => {
+            if (!currentAudio) return;
+            const pct = (currentAudio.currentTime / currentAudio.duration) * 100;
+            slider.value = pct || 0;
+            timeDisp.innerText = `${formatTime(currentAudio.currentTime)} / ${formatTime(currentAudio.duration)}`;
+        });
+
+        currentAudio.addEventListener('ended', () => {
+            btn.innerText = "▶";
+            slider.value = 0;
+            timeDisp.innerText = `00:00 / ${formatTime(currentAudio.duration)}`;
+        });
+    }
+
+    function seekAudio(id, value) {
+        if (currentPlayingId === id && currentAudio) {
+            const newTime = (value / 100) * currentAudio.duration;
+            currentAudio.currentTime = newTime;
+        }
+    }
+
+    function changeSpeed(id) {
+        const speedBtn = document.getElementById(`speed-btn-${id}`);
+        let currentSpeed = speedStates[id] || 1.0;
+
+        if (currentSpeed === 1.0) currentSpeed = 0.8;
+        else if (currentSpeed === 0.8) currentSpeed = 0.6;
+        else currentSpeed = 1.0;
+
+        speedStates[id] = currentSpeed;
+        speedBtn.innerText = `${currentSpeed.toFixed(1)}x`;
+
+        if (currentPlayingId === id && currentAudio) {
+            currentAudio.playbackRate = currentSpeed;
+        }
     }
 
     function validateAllTranslations() {
@@ -285,14 +532,24 @@ const dialogueData = [
             block.style.display = hintsVisible ? 'block' : 'none';
         });
 
-        globalBtn.innerText = hintsVisible ? "Ẩn bản dịch mẫu" : "Hiển thị bản dịch mẫu";
+        globalBtn.innerText = hintsVisible ? "Ẩn bản dịch tiếng Việt" : "Bản dịch tiếng Việt";
     }
 
     const dialogueContainer = document.getElementById('dialogue');
     
     dialogueData.forEach((item, index) => {
         const block = document.createElement('div');
-        block.className = 'sentence-block';
+        
+        let layoutClass = '';
+        if (item.speaker === '') {
+            layoutClass = 'block-narrative';
+        } else if (item.speaker === '민수') {
+            layoutClass = 'block-minsoo';
+        } else if (item.speaker === '수진') {
+            layoutClass = 'block-soojin';
+        }
+        
+        block.className = `sentence-block ${layoutClass}`;
 
         let rawText = item.text;
         const regex = /\[(.*?)\]/g;
@@ -323,20 +580,28 @@ const dialogueData = [
         }
 
         block.innerHTML = `
+            <div class="audio-player-zone">
+                <button id="play-btn-${item.id}" class="play-btn" onclick="playAudio(${item.id})">▶</button>
+                <input id="slider-${item.id}" class="audio-slider" type="range" min="0" max="100" value="0" oninput="seekAudio(${item.id}, this.value)">
+                <span id="time-${item.id}" class="time-display">00:00 / 00:00</span>
+                <button id="speed-btn-${item.id}" class="speed-btn" onclick="changeSpeed(${item.id})">1.0x</button>
+            </div>
+
             <div class="korean-line">
-                <button class="play-btn" onclick="playAudio(${item.id})">▶</button>
+                ${item.id === 1 ? '<div style="width: 100%; font-size: 14px; color: #3182ce; font-weight: bold; margin-bottom: 8px;">💡 Giới thiệu bối cảnh:</div>' : ''}
                 ${speakerTag}
                 <span>${formattedText}</span>
             </div>
+
             <div class="translation-zone">
                 <textarea class="translation-box" rows="1" 
                           oninput="validateAllTranslations()" 
-                          placeholder="Nhập bản dịch tiếng Việt của câu này vào đây..."></textarea>
+                          placeholder="Nhập phần dịch tiếng Việt ở đây..."></textarea>
                 <div id="hint-text-${index}" class="hint-text">💡 <b>Bản dịch mẫu:</b> ${item.hint}</div>
             </div>
         `;
         dialogueContainer.appendChild(block);
-    });
+    }); // Đã vá xong dấu đóng ngoặc hàm render bị thiếu!
 
     function checkAnswers() {
         const blanks = document.querySelectorAll('.blank');
