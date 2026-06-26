@@ -30,7 +30,6 @@
             box-sizing: border-box;
         }
 
-        /* Định dạng tag lớp học */
         .classroom-tag {
             text-align: center;
             color: #a0aec0;
@@ -39,7 +38,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* Khung hướng dẫn tổng bọc ngoài dập nhẹ (Đã chỉnh tone xanh pastel dịu mát) */
         .instruction-box {
             background: #e6f0ff;
             padding: 25px 30px;
@@ -49,7 +47,6 @@
             border: 1px solid rgba(255, 255, 255, 0.6);
         }
 
-        /* Tiêu đề hướng dẫn */
         .ins-title {
             font-size: 14px;
             font-weight: 700;
@@ -61,21 +58,18 @@
             gap: 8px;
         }
 
-        /* Danh sách các bước làm bài */
         .ins-steps {
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
 
-        /* Từng dòng bước làm bài */
         .step-item {
             display: flex;
             align-items: flex-start;
             gap: 14px;
         }
 
-        /* Số thứ tự tròn dạng pastel dịu mắt */
         .step-number {
             background: #ffffff;
             color: #3182ce;
@@ -92,7 +86,6 @@
             box-shadow: 1px 1px 3px #d1d9e6;
         }
 
-        /* Chữ của từng bước */
         .step-item p {
             margin: 0;
             font-size: 14px;
@@ -117,7 +110,6 @@
             height: auto;
         }
         
-        /* Cấu trúc bong bóng chat Neumorphism */
         .sentence-block {
             background: #f5f7fa;
             padding: 25px;
@@ -131,26 +123,22 @@
             transition: all 0.3s ease;
         }
 
-        /* Câu dẫn chuyện ở giữa */
         .block-narrative {
             margin: 0 auto;
             width: 100%;
             border: 2px dashed #8BB2EC;
         }
 
-        /* Minsoo lệch trái */
         .block-minsoo {
             margin-right: auto;
             margin-left: 0;
         }
 
-        /* Soojin lệch phải */
         .block-soojin {
             margin-left: auto;
             margin-right: 0;
         }
 
-        /* --- Giao diện thanh âm thanh Pastel trên cùng --- */
         .audio-player-zone {
             display: flex;
             align-items: center;
@@ -181,9 +169,6 @@
             color: #3182ce;
             box-shadow: 1px 1px 3px #d1d9e6, -1px -1px 3px #ffffff;
         }
-        .play-btn:active {
-            box-shadow: inset 2px 2px 4px #d1d9e6, inset -2px -2px 4px #ffffff;
-        }
         .audio-slider {
             flex-grow: 1;
             -webkit-appearance: none;
@@ -205,9 +190,6 @@
             box-shadow: 1px 1px 3px #b8c2cc;
             transition: transform 0.1s;
         }
-        .audio-slider::-webkit-slider-thumb:hover {
-            transform: scale(1.2);
-        }
         .time-display {
             font-size: 12px;
             color: #718096;
@@ -225,21 +207,16 @@
             border-radius: 20px;
             cursor: pointer;
             box-shadow: 2px 2px 5px #d1d9e6, -2px -2px 5px #ffffff;
-            transition: all 0.2s ease;
             min-width: 45px;
         }
-        .speed-btn:hover {
-            color: #88C1F2;
-        }
 
-        /* --- Vùng hội thoại điền từ --- */
         .korean-line {
             font-size: 18px;
-            line-height: 1.9;
+            line-height: 2;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             color: #000000;
             margin: 5px 0;
         }
@@ -261,6 +238,15 @@
             box-shadow: 3px 3px 6px #d1d9e6, -3px -3px 6px #ffffff;
             margin-right: 5px;
         }
+
+        /* --- CẤU TRÚC Ô ĐIỀN TỪ TẠI CHỖ (UX CẢI TIẾN) --- */
+        .blank-wrapper {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            vertical-align: middle;
+        }
         input[type="text"].blank {
             border: none;
             background: #f5f7fa;
@@ -271,7 +257,6 @@
             border-radius: 20px;
             box-shadow: inset 2px 2px 5px #d1d9e6, inset -2px -2px 5px #ffffff;
             transition: all 0.3s ease;
-            margin: 0 4px;
             font-family: inherit;
         }
         input[type="text"].blank:focus {
@@ -289,7 +274,84 @@
             background: #fff5f5;
         }
 
-        /* --- Khung dịch tiếng Việt dưới cùng --- */
+        /* Nút check mini tại chỗ câu thoại */
+        .mini-check-btn {
+            background: #ffffff;
+            border: none;
+            font-size: 11px; /* Tăng nhẹ 11px để dấu ✓ nhìn rõ ràng hơn */
+            font-weight: bold;
+            width: 32px;
+            height: 32px;
+            padding: 0;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #4a5568;
+            box-shadow: 1px 1px 3px #d1d9e6, -1px -1px 3px #ffffff;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+        .mini-check-btn:hover {
+            background: #88C1F2;
+            color: white;
+        }
+
+        .mini-check-btn.success {
+            background: #c6f6d5 !important; /* Màu xanh lá nhạt pastel dịu mắt */
+            color: #22543d !important;      /* Chữ/Dấu ✓ màu xanh lá đậm cho rõ ràng */
+            box-shadow: inset 1px 1px 2px #9ae6b4;
+            cursor: default; /* Đổi con trỏ chuột thành dạng mặc định vì đã làm đúng rồi */
+        }
+
+        /* Icon bóng đèn mở popup gợi ý ngữ pháp/từ vựng */
+        .bulb-hint-icon {
+            font-size: 20px;
+            cursor: pointer;
+            display: none; /* Chỉ xuất hiện khi làm sai */
+            animation: bounce 0.4s infinite alternate;
+        }
+        @keyframes bounce {
+            from { transform: translateY(); }
+            to { transform: translateY(-6px); }
+        }
+
+        /* Tooltip Popup nhỏ xinh cạnh ô điền từ */
+        .hint-popup {
+            visibility: hidden;
+            position: absolute;
+            bottom: 130%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #2d3748;
+            color: #fff;
+            text-align: center;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 13px;
+            white-space: nowrap;
+            z-index: 10;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .hint-popup::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #2d3748 transparent transparent transparent;
+        }
+        .blank-wrapper:hover .hint-popup.show, 
+        .bulb-hint-icon:hover + .hint-popup {
+            visibility: visible;
+            opacity: 1;
+        }
+
         .translation-zone {
             display: flex;
             flex-direction: column;
@@ -324,7 +386,6 @@
             line-height: 1.5;
         }
         
-        /* Khu vực nút điều khiển cuối bài */
         .action-area {
             margin-top: 50px;
             margin-bottom: 20px;
@@ -332,30 +393,31 @@
             justify-content: center;
             gap: 20px;
         }
+        
+        /* Cấu trúc nút bấm khóa/mở khóa ở cuối trang */
         .check-btn, .global-hint-btn {
-            background: #f5f7fa;
-            color: #4a5568;
+            background: #e2e8f0;
+            color: #a0aec0;
             border: none;
             padding: 15px 35px;
             font-size: 16px;
             border-radius: 25px;
-            cursor: pointer;
+            cursor: not-allowed;
             font-weight: bold;
-            box-shadow: 6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff;
-            transition: all 0.2s ease;
+            box-shadow: none;
+            opacity: 0.6;
+            transition: all 0.3s ease;
             font-family: inherit;    
         }
-        .check-btn:hover {
+        .check-btn.active {
+            background: #ffffff;
             color: #38a169;
+            cursor: pointer;
+            opacity: 1;
+            box-shadow: 6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff;
+        }
+        .check-btn.active:hover {
             box-shadow: 2px 2px 6px #d1d9e6, -2px -2px 6px #ffffff;
-        }
-        .check-btn:active {
-            box-shadow: inset 3px 3px 6px #d1d9e6, inset -3px -3px 6px #ffffff;
-        }
-        .global-hint-btn {
-            color: #a0aec0;
-            cursor: not-allowed;
-            opacity: 0.6;
         }
         .global-hint-btn.active {
             color: #ffffff;
@@ -363,11 +425,32 @@
             cursor: pointer;
             opacity: 1;
             box-shadow: 5px 5px 10px #b8c2cc, -5px -5px 10px #ffffff;
-            font-family: inherit;
         }
         .global-hint-btn.active:hover {
             background: #A0D3FF;
-            box-shadow: 2px 2px 6px #b8c2cc, -2px -2px 6px #ffffff;
+        }
+        /* Hiệu ứng rung lắc khi làm sai */
+        .shake {
+            animation: shakeEffect 0.4s ease-in-out;
+        }
+
+        @keyframes shakeEffect {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-6px); }
+            40%, 80% { transform: translateX(6px); }
+        }
+
+        /* Tối ưu tag đáp án: chữ đỏ nhỏ, không nền, không box, cố định ngay trên ô input */
+        .final-answer-tag {
+            position: absolute;
+            bottom: 82%; /* Đẩy chữ nằm ngay trên đầu text box một khoảng vừa vặn */
+            left: 30px;   /* Căn lề trái cố định theo ô input, không lo bị bay xéo xéo nữa */
+            font-size: 11px; /* Thu nhỏ size chữ lại một chút cho tinh tế */
+            color: #c53333;  /* Giữ màu đỏ thương hiệu để học sinh dễ chú ý */
+            font-weight: bold;
+            white-space: nowrap;
+            z-index: 5;
+            font-family: inherit; /* Bây giờ dòng này sẽ chạy mượt mà vì phía trên hết lỗi */
         }
     </style>
 </head>
@@ -382,15 +465,19 @@
         <div class="ins-steps">
             <div class="step-item">
                 <span class="step-number">1</span>
-                <p>Click nút <b>"Play 🔊"</b> ở mỗi câu để nghe và điền vào chỗ trống (có thể tạm dừng hoặc chỉnh tốc độ đọc tùy ý).</p>
+                <p>Click nút <b>"Play 🔊"</b> ở mỗi câu để nghe và điền từ vào ô trống. Bấm nút <b>"✓"</b> mini kế bên ô để xem đúng/sai tức thì. </p>
             </div>
             <div class="step-item">
                 <span class="step-number">2</span>
-                <p>Dịch từng câu văn hội thoại sang tiếng Việt vào ô trống phía dưới.</p>
+                <p>Nếu điền sai, rê chuột vào icon bóng đèn 💡 xuất hiện bên cạnh để xem gợi ý Từ vựng/Ngữ pháp.</p>
             </div>
             <div class="step-item">
                 <span class="step-number">3</span>
-                <p>Sau khi hoàn thành, ở phía dưới cùng bài tập, học viên có thể bấm nút kiểm tra kết quả bài làm. [Bản dịch tiếng Việt chỉ hiển thị khi dịch hết bài]</p>
+                <p>Khi điền <b>ĐỦ TẤT CẢ CÁC Ô TIẾNG HÀN</b>, nút "Kết quả điền từ" dưới cùng sẽ mở khóa để chấm toàn bộ bài.</p>
+            </div>
+            <div class="step-item">
+                <span class="step-number">4</span>
+                <p>Sau khi dịch <b>ĐỦ 12 CÂU TIẾNG VIỆT</b>, nút "Bản dịch tiếng Việt" dưới cùng sẽ mở khóa để có thể tham khảo.</p>
             </div>
         </div>
     </div>
@@ -398,23 +485,26 @@
     <div class="dialogue-wrapper" id="dialogue"></div>
 
     <div class="action-area">
-        <button class="check-btn" onclick="checkAnswers()">Kết quả điền từ</button>
+        <button id="global-check-button" class="check-btn" disabled onclick="checkAnswers()">Kết quả điền từ</button>
         <button id="global-hint-button" class="global-hint-btn" disabled onclick="toggleAllHints()">Bản dịch tiếng Việt</button>
     </div>
-</div> <script>
+</div>
+
+<script>
+// Tích hợp dữ liệu gợi ý ngữ pháp/từ vựng (vocabHints) tương ứng với từng cụm đục lỗ [...]
 const dialogueData = [
-        { id: 1, text: "민수 씨는 이번 주 토요일에 [친구와 영화를 보려고 해요]. 그래서 오늘 오전 10시에 [수진 씨에게] 전화를 합니다.", speaker: "", hint: "Minsoo định đi xem phim với bạn vào thứ Bảy tuần này. Vì vậy, cậu ấy gọi điện cho Soojin vào lúc 10 giờ sáng hôm nay." },
-        { id: 2, text: "여보세요? 거기 [수진 씨지요]?", speaker: "민수", hint: "A lô? Bên đó có phải là Soojin không ạ?" },
-        { id: 3, text: "네, [그런데요]. 실례지만 [누구세요]?", speaker: "수진", hint: "Vâng, đúng rồi ạ. Xin lỗi, ai đầu dây đấy ạ?" },
-        { id: 4, text: "저는 민수예요. 제가 오늘 생일 [선물을 받았어요]. 수진 씨가 선물을 [보냈어요]?", speaker: "민수", hint: "Tôi là Minsoo đây ạ. Hôm nay tôi đã nhận được quà sinh nhật. Soojin đã gửi quà cho tôi à?" },
-        { id: 5, text: "오, 아니에요~ [제 선물이 아니에요]. 선물을 [안 보냈어요].", speaker: "수진", hint: "Ôi, không phải đâu ạ~ Không phải quà của tôi đâu. Tôi không có gửi quà ạ." },
-        { id: 6, text: "오, 그래요? 아~ 오늘 학교에서 [영어를 배우지만] 안 바빠요. 점심에 [만날래요]? 저는 베트남 음식을 [먹고 싶어요].", speaker: "민수", hint: "Ôi, thế ạ? À~ Hôm nay ở trường tôi học tiếng Anh nhưng không bận lắm. Buổi trưa chúng ta gặp nhau nhé? Tôi muốn ăn món ăn Việt Nam." },
-        { id: 7, text: "그래요? 저는 지금 [동생하고] 집에서 청소를 해요. [12시부터 2시까지] 시간이 있어요.", speaker: "수진", hint: "Vậy à? Bây giờ tôi đang dọn dẹp nhà cửa cùng với em. Tôi có thời gian từ 12 giờ đến 2 giờ." },
-        { id: 8, text: "좋아요. 그럼 12시 30분에 [학교 앞으로] 오세요. [거기에서 만나고] 같이 점심을 먹어요. 그리고 같이 [영화를 볼래요]?", speaker: "민수", hint: "Được ạ. Vậy thì 12 giờ 30 phút bạn đến trước cổng trường nhé. Chúng ta gặp nhau ở đó rồi cùng ăn trưa. Và chúng ta cùng đi xem phim nhé?" },
-        { id: 9, text: "좋아요. 하지만 오늘은 비가 오고 [바람도 불어요]. 조금 [추울 거예요].", speaker: "수진", hint: "Được ạ. Nhưng hôm nay trời mưa và gió cũng thổi nữa. Sẽ hơi lạnh đấy ạ." },
-        { id: 10, text: "네. 저는 지난 주에 우산 [두 개를] 샀어요. [수진 씨에게] 우산을 줄 거예요. 그리고 [커피도 두 잔] 사 줄 거예요.", speaker: "민수", hint: "Vâng. Tuần trước tôi đã mua hai cái ô. Tôi sẽ đưa ô cho Su-jin. Và tôi cũng sẽ mua cho bạn hai ly cà phê nữa." },
-        { id: 11, text: "감사합니다. 그럼 12시 30분에 [만납시다]. 문자메시지를 [보내 주세요].", speaker: "수진", hint: "Cảm ơn nhé. Vậy 12 giờ 30 phút chúng ta gặp nhau đi. Xin hãy gửi tin nhắn văn bản cho tôi." },
-        { id: 12, text: "네, [메시지를 보내겠습니다].", speaker: "민수", hint: "Vâng, tôi sẽ gửi tin nhắn ạ." }
+        { id: 1, text: "민수 씨는 이번 주 토요일에 [친구와 영화를 보려고 해요]. 그래서 오늘 오전 10시에 [수진 씨에게] 전화를 합니다.", speaker: "", hint: "Minsoo định đi xem phim với bạn vào thứ Bảy tuần này. Vì vậy, cậu ấy gọi điện cho Soojin vào lúc 10 giờ sáng hôm nay.", vocabHints: ["친구, 영화 (phim), -(으)려고 하다 (định làm gì)", "수진 씨 [chú ý khoảng cách], 에게 (cho/tới ai đó)"] },
+        { id: 2, text: "여보세요? 거기 [수진 씨지요]?", speaker: "민수", hint: "A lô? Bên đó có phải là Soojin không ạ?", vocabHints: ["수진 씨, -지요? (đúng không/phải không)"] },
+        { id: 3, text: "네, [그런데요]. 실례지만 [누구세요]?", speaker: "수진", hint: "Vâng, đúng rồi ạ. Xin lỗi, ai đầu dây đấy ạ?", vocabHints: ["그런데요", "누구 (ai), -세요 (đuôi kính ngữ)"] },
+        { id: 4, text: "저는 민수예요. 제가 오늘 생일 [선물을 받았어요]. 수진 씨가 선물을 [보냈어요]?", speaker: "민수", hint: "Tôi là Minsoo đây ạ. Hôm nay tôi đã nhận được quà sinh nhật. Soojin đã gửi quà cho tôi à?", vocabHints: ["선물 (quà), 받다 (nhận) + 았/었/였 (quá khứ)", "보내다 (gửi) + 았/었/였 (quá khứ)"] },
+        { id: 5, text: "오, 아니에요~ [제 선물이 아니에요]. 선물을 [안 보냈어요].", speaker: "수진", hint: "Ôi, không phải đâu ạ~ Không phải quà của tôi đâu. Tôi không có gửi quà ạ.", vocabHints: ["저 (tôi) + 의 -> 제 (của tôi), 선물, 아니다 -> 아니에요 (không phải)", "안 (không) + 보내다 (gửi) + quá khứ"] },
+        { id: 6, text: "오, 그래요? 아~ 오늘 학교에서 [영어를 배우지만] 안 바빠요. 점심에 [만날래요]? 저는 베트남 음식을 [먹고 싶어요].", speaker: "민수", hint: "Ôi, thế ạ? À~ Hôm nay ở trường tôi học tiếng Anh nhưng không bận lắm. Buổi trưa chúng ta gặp nhau nhé? Tôi muốn ăn món ăn Việt Nam.", vocabHints: ["영어 (tiếng Anh), 배우다 (học) + 지만 (nhưng)", "만나다 (gặp), -(으)ㄹ래요? (rủ rê/ý muốn)", "베트남 음식 (món ăn VN), 먹다 (ăn) + 고 싶다 (muốn)"] },
+        { id: 7, text: "그래요? 저는 지금 [동생하고] 집에서 청소를 해요. [12시부터 2시까지] 시간이 있어요.", speaker: "수진", hint: "Vậy à? Bây giờ tôi đang dọn dẹp nhà cửa cùng với em. Tôi có thời gian từ 12 giờ đến 2 giờ.", vocabHints: ["동생 (em), 하고 (với/cùng với)", "12시, 2시, -부터 (từ) -까지 (đến)"] },
+        { id: 8, text: "좋아요. 그럼 12시 30분에 [학교 앞으로] 오세요. [거기에서 만나고] 같이 점심을 먹어요. 그리고 같이 [영화를 볼래요]?", speaker: "민수", hint: "Được ạ. Vậy thì 12 giờ 30 phút bạn đến trước cổng trường nhé. Chúng ta gặp nhau ở đó rồi cùng ăn trưa. Và chúng ta cùng đi xem phim nhé?", vocabHints: ["학교 (trường), 앞 (trước), 으로 (hướng về phía)", "거기 (ở đó), 에서 (tại), 만나다 (gặp) + 고 (và)", "영화 (phim), 보다 (xem) + -(으)ㄹ래요? (rủ rê)"] },
+        { id: 9, text: "좋아요. 하지만 오늘은 비가 오고 [바람도 불어요]. 조금 [추울 거예요].", speaker: "수진", hint: "Được ạ. Nhưng hôm nay trời mưa và gió cũng thổi nữa. Sẽ hơi lạnh đấy ạ.", vocabHints: ["바람 (gió), 불다 (thổi), 도 (cũng)", "춥다 (lạnh) + -(으)ㄹ 거예요 (sẽ - phỏng đoán), bất quy tắc ㅂ"] },
+        { id: 10, text: "네. 저는 지난 주에 [두 개를] 샀어요. [수진 씨에게] 우산을 줄 거예요. 그리고 [커피도 두 잔] 사 줄 거예요.", speaker: "민수", hint: "Vâng. Tuần trước tôi đã mua hai cái ô. Tôi sẽ đưa ô cho Su-jin. Và tôi cũng sẽ mua cho bạn hai ly cà phê nữa.", vocabHints: ["둘 (hai), 개 (cái - danh từ chỉ đơn vị)", "수진 씨, 에게 (cho/tới ai đó)", "커피 (cà phê) + 도 (cũng), 둘 (hai) + 잔 (ly/tách)"] },
+        { id: 11, text: "감사합니다. 그럼 12시 30분에 [만납시다]. 문자메시지를 [보내 주세요].", speaker: "수진", hint: "Cảm ơn nhé. Vậy 12 giờ 30 phút chúng ta gặp nhau đi. Xin hãy gửi tin nhắn văn bản cho tôi.", vocabHints: ["만나다 (gặp) + -(으)ㅂ시다 (hãy cùng - rủ rê trang trọng)", "문자메시지 (tin nhắn), 보내다 (gửi) + -아/어 주세요 (làm ơn/cho tôi)"] },
+        { id: 12, text: "네, [메시지를 보내겠습니다].", speaker: "민수", hint: "Vâng, tôi sẽ gửi tin nhắn ạ.", vocabHints: ["메시지 (tin nhắn), 보내다 (gửi) + -겠습니다 (sẽ - ý chí)"] }
     ];
 
     let currentAudio = null;
@@ -503,13 +593,64 @@ const dialogueData = [
         }
     }
 
+    // --- LOGIC KIỂM TRA TỪNG CÂU TẠI CHỖ & MỞ KHÓA NÚT TỔNG ĐÁY BÀI ---
+    function checkSingleBlank(blankId, correctAnswer) {
+        const input = document.getElementById(blankId);
+        const bulb = document.getElementById(`bulb-${blankId}`);
+        const miniBtn = document.getElementById(`btn-${blankId}`);
+        const userAnswer = input.value.trim().replace(/\s+/g, ' ');
+
+        // Xóa bỏ class shake cũ nếu có để sẵn sàng tạo lượt rung mới
+        input.classList.remove('shake');
+
+        if (userAnswer === '') {
+            input.className = 'blank';
+            bulb.style.display = 'none';
+            miniBtn.classList.remove('success');
+        } else if (userAnswer === correctAnswer) {
+            input.className = 'blank correct';
+            bulb.style.display = 'none';
+            miniBtn.classList.add('success');
+        } else {
+            input.className = 'blank wrong';
+            bulb.style.display = 'inline-block';
+            miniBtn.classList.remove('success');
+
+            // MẸO UX: Ép trình duyệt kích hoạt lại hiệu ứng rung lắc (Shake) ngay lập tức khi bấm check mà vẫn sai
+            void input.offsetWidth; // Trigger reflow để reset animation
+            input.classList.add('shake');
+        }
+        validateGlobalCheckButton();
+    }
+
+    // Kiểm tra xem tất cả các ô input đã được gõ ký tự vào chưa để kích hoạt nút check toàn bài
+    function validateGlobalCheckButton() {
+        const blanks = document.querySelectorAll('.blank');
+        const globalCheckBtn = document.getElementById('global-check-button');
+        let allFilled = true;
+
+        blanks.forEach(input => {
+            if (input.value.trim() === '') {
+                allFilled = false;
+            }
+        });
+
+        if (allFilled) {
+            globalCheckBtn.classList.add('active');
+            globalCheckBtn.disabled = false;
+        } else {
+            globalCheckBtn.classList.remove('active');
+            globalCheckBtn.disabled = true;
+        }
+    }
+
     function validateAllTranslations() {
         const boxes = document.querySelectorAll('.translation-box');
         const globalBtn = document.getElementById('global-hint-button');
         let allValid = true;
 
         boxes.forEach(box => {
-            if (box.value.trim().length < 6) {
+            if (box.value.trim().length < 6) { // Kiểm tra gõ đủ nghĩa câu dịch
                 allValid = false;
             }
         });
@@ -539,6 +680,7 @@ const dialogueData = [
     }
 
     const dialogueContainer = document.getElementById('dialogue');
+    let totalBlankCount = 0; // Đếm số ô đục lỗ toàn bài
     
     dialogueData.forEach((item, index) => {
         const block = document.createElement('div');
@@ -559,15 +701,30 @@ const dialogueData = [
         let match;
         let parts = [];
         let lastIndex = 0;
+        let itemBlankIndex = 0; // Thứ tự ô đục lỗ trong chính câu thoại này
 
         while ((match = regex.exec(rawText)) !== null) {
             if (match.index > lastIndex) {
                 parts.push(rawText.substring(lastIndex, match.index));
             }
             const answer = match[1];
-            const width = Math.max(80, answer.length * 14 + 24); 
-            parts.push(`<input type="text" class="blank" data-answer="${answer}" style="width: ${width}px;" placeholder="...">`);
+            const width = Math.max(90, answer.length * 14 + 24); 
+            const uniqueBlankId = `blank-${item.id}-${itemBlankIndex}`;
+            const currentVocabHint = item.vocabHints && item.vocabHints[itemBlankIndex] ? item.vocabHints[itemBlankIndex] : "Nghe kỹ audio để hoàn thành câu nha!";
+
+            // Tách cụm input kết hợp nút check mini dấu ✓ và popup bóng đèn 💡 gợi ý thông minh
+            parts.push(`
+                <span class="blank-wrapper">
+                    <input type="text" id="${uniqueBlankId}" class="blank" data-answer="${answer}" style="width: ${width}px;" placeholder="..." oninput="validateGlobalCheckButton()">
+                    <button id="btn-${uniqueBlankId}" class="mini-check-btn" onclick="checkSingleBlank('${uniqueBlankId}', '${answer}')">✓</button>
+                    <span id="bulb-${uniqueBlankId}" class="bulb-hint-icon">💡</span>
+                    <span class="hint-popup">${currentVocabHint}</span>
+                </span>
+            `);
+            
             lastIndex = regex.lastIndex;
+            itemBlankIndex++;
+            totalBlankCount++;
         }
         if (lastIndex < rawText.length) {
             parts.push(rawText.substring(lastIndex));
@@ -604,20 +761,42 @@ const dialogueData = [
             </div>
         `;
         dialogueContainer.appendChild(block);
-    }); // Đã vá xong dấu đóng ngoặc hàm render bị thiếu!
+    });
 
+    // Nút Check đáp án điền từ cho CẢ BÀI dưới cùng trang web
     function checkAnswers() {
         const blanks = document.querySelectorAll('.blank');
         blanks.forEach(input => {
             const userAnswer = input.value.trim().replace(/\s+/g, ' ');
             const correctAnswer = input.getAttribute('data-answer').trim().replace(/\s+/g, ' ');
+            const bulb = document.getElementById(`bulb-${input.id}`);
+            const miniBtn = document.getElementById(`btn-${input.id}`);
+            const wrapper = input.parentElement;
+
+            // Xóa bỏ tag đáp án cũ nếu có
+            const oldResultTag = wrapper.querySelector('.final-answer-tag');
+            if (oldResultTag) {
+                oldResultTag.remove();
+            }
 
             if (userAnswer === '') {
                 input.className = 'blank';
+                if(bulb) bulb.style.display = 'none';
+                if(miniBtn) miniBtn.classList.remove('success');
             } else if (userAnswer === correctAnswer) {
                 input.className = 'blank correct';
+                if(bulb) bulb.style.display = 'none';
+                if(miniBtn) miniBtn.classList.add('success');
             } else {
                 input.className = 'blank wrong';
+                if(bulb) bulb.style.display = 'inline-block';
+                if(miniBtn) miniBtn.classList.remove('success');
+
+                // MỚI: Tạo tag đáp án áp class CSS để tự động nhảy lên trên đầu box
+                const answerTag = document.createElement('span');
+                answerTag.className = 'final-answer-tag';
+                answerTag.innerHTML = `☑️: ${correctAnswer}`;
+                wrapper.appendChild(answerTag);
             }
         });
     }
